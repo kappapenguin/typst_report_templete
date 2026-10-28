@@ -12,7 +12,7 @@ Git Submoduleで取り込むことで利用する。
 ### bash
 
 ```bash
-git submodule add <このリポジトリのURL> templete
+git submodule add https://github.com/kappapenguin/typst_report_templete.git templete
 cp -rn templete/assets ./
 echo '#import "templete/libs/format_report.typ": *' > main.typ.tmp
 tail -n +2 templete/templete_report.typ >> main.typ.tmp
@@ -23,7 +23,7 @@ rm -f main.typ.tmp
 ### PowerShell
 
 ```bash
-git submodule add <このリポジトリのURL> templete
+git submodule add https://github.com/kappapenguin/typst_report_templete.git templete
 if (-not (Test-Path assets)) { Copy-Item -Recurse templete/assets . }
 '#import "templete/libs/format_report.typ": *' | Set-Content -Encoding utf8 main.typ.tmp
 Get-Content templete/templete_report.typ | Select-Object -Skip 1 | Add-Content -Encoding utf8 main.typ.tmp
