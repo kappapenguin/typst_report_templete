@@ -24,11 +24,11 @@ rm -f main.typ.tmp
 
 ```bash
 git submodule add https://github.com/kappapenguin/typst_report_templete.git templete
-if (-not (Test-Path assets)) { Copy-Item -Recurse templete/assets . }
-'#import "templete/libs/format_report.typ": *' | Set-Content -Encoding utf8 main.typ.tmp
-Get-Content templete/templete_report.typ | Select-Object -Skip 1 | Add-Content -Encoding utf8 main.typ.tmp
-Move-Item main.typ.tmp main.typ -ErrorAction SilentlyContinue
-Remove-Item main.typ.tmp -ErrorAction SilentlyContinue
+if (!(Test-Path assets)) { cp -r templete/assets . }
+'#import "templete/libs/format_report.typ": *' | sc -enc utf8 main.typ.tmp
+gc -enc utf8 templete/templete_report.typ | select -skip 1 | ac -enc utf8 main.typ.tmp
+mv main.typ.tmp main.typ -ea 0
+rm main.typ.tmp -ea 0
 ```
 
 ---
