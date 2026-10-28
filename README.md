@@ -31,11 +31,9 @@ mv main.typ.tmp main.typ -ea 0
 rm main.typ.tmp -ea 0
 ```
 
----
-
 ## Project
 
-セットアップ完了後、プロジェクト直下は以下の構成になります。
+セットアップ完了後、プロジェクト直下は以下の構成になる。
 
 ```text
 project/
@@ -48,8 +46,6 @@ project/
     ├── templete_report.typ
     └── README.md
 ```
-
----
 
 ## Usage
 
@@ -65,4 +61,24 @@ typst compile main.typ
 
 ```bash
 typst watch main.typ
+```
+
+## Reset
+
+展開したファイルを削除する
+
+### bash
+
+```bash
+rm -rf assets
+rm -f main.typ main.typ.tmp
+
+```
+
+### PowerShell
+
+```powershell
+rm -r -force assets -ea 0
+rm main.typ, main.typ.tmp -ea 0
+
 ```
